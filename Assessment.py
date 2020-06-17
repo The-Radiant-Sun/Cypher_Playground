@@ -1,4 +1,7 @@
 # Interactive cryptography playground
+from GUI import Ui_Form
+from PyQt5 import QtCore, QtGui, QtWidgets
+
 from Caeser import CaesarCypher
 from Vigenere import VigenereCypher
 from XOR import XOR

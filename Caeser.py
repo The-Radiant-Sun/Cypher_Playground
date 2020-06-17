@@ -14,8 +14,9 @@ class CaesarCypher:
             upper = False if character.islower() else True
             character = character.lower()
             alter = ord(character) + self.key
-            alter -= 26 if alter > ord('z') else 0
-            alter += 26 if alter < ord('a') else 0
+            while alter > ord('z') or alter < ord('a'):
+                alter -= 26 if alter > ord('z') else 0
+                alter += 26 if alter < ord('a') else 0
             alter = chr(alter)
             alter = alter.upper() if upper else alter
             result += alter
