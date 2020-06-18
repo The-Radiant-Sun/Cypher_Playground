@@ -1,13 +1,15 @@
 # Caeser cypher
-class CaesarCypher:
-    def __init__(self, message, key):
-        self.message = message
-        self.key = self.check_error(key)
+from Assessment import Cypher
+
+
+class CaesarCypher(Cypher):
+    def __init__(self):
+        self.message = Cypher.get_input('message')
+        self.key = self.check_error(Cypher.get_input('key'))
 
     def encrypt(self):
         result = ''
         for character in self.message:
-            upper = False
             if character == ' ' or not character.isalpha():
                 result += character
                 continue
@@ -23,11 +25,14 @@ class CaesarCypher:
         return result
 
     def decrypt(self):
-        return CaesarCypher(self.message, -self.key).encrypt()
+        return self.encrypt()
 
     def check_error(self, potential):
         try:
             potential = int(potential)
         except ValueError:
-            potential = CaesarCypher(self.message, input('Please enter a numerically correct key: ')).key
+            potential = self.check_error(Cypher.get_input('numerically correct key'))
         return potential
+
+
+print(CaesarCypher().encrypt())

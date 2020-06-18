@@ -9,14 +9,18 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import sys
 
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(565, 399)
+        Form.resize(700, 500)
+        form_width_ratio = Form.width()/700
+        form_height_ratio = Form.height()/500
         self.comboBox = QtWidgets.QComboBox(Form)
-        self.comboBox.setGeometry(QtCore.QRect(20, 20, 131, 21))
+        comboBox_base_width = 131
+        comboBox_base_height = 21
+        self.comboBox.setGeometry(QtCore.QRect(20, 20, form_width_ratio*comboBox_base_width, form_height_ratio*comboBox_base_height))
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
@@ -54,11 +58,11 @@ class Ui_Form(object):
         self.radioButton_2.setText(_translate("Form", "Decrypt"))
 
 
-if __name__ == "__main__":
-    import sys
+if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
+
