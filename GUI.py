@@ -51,9 +51,12 @@ class Ui_Form(object):
         self.pushButton = QtWidgets.QPushButton(form)
         self.pushButton.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 479, 360, 62, 14))
         self.pushButton.setObjectName("pushButton")
-
         self.retranslate_ui(form)
+        #self.pushButton.clicked.connect(self.alter())
         QtCore.QMetaObject.connectSlotsByName(form)
+
+    def alter(self):
+        self.plainTextEdit.setPlainText(QtCore.QCoreApplication.translate("Form", "I waws clisasoidfj;asdf"))
 
     def retranslate_ui(self, form):
         _translate = QtCore.QCoreApplication.translate
@@ -64,7 +67,7 @@ class Ui_Form(object):
         self.plainTextEdit.setPlainText(_translate("Form", "Input message"))
         self.plainTextEdit_2.setPlainText(_translate("Form", "Input key"))
         self.plainTextEdit_3.setPlainText(_translate("Form", "Resulting text"))
-        self.radioButton.setText(_translate("Form", "Ecrypt"))
+        self.radioButton.setText(_translate("Form", "Encrypt"))
         self.radioButton_2.setText(_translate("Form", "Decrypt"))
         self.pushButton.setText(_translate("Form", "Run"))
 
