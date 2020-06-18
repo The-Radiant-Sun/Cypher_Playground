@@ -7,10 +7,10 @@ from Vigenere import VigenereCypher
 from XOR import XOR
 
 
-class Assessment:
+class Cypher:
     def __init__(self):
-        self.message = Assessment.get_input('message')
-        self.key = Assessment.get_input('key')
+        self.message = Cypher.get_input('message')
+        self.key = Cypher.get_input('key')
 
     def run(self):
         print(CaesarCypher(self.message, self.key).encrypt())
@@ -19,8 +19,8 @@ class Assessment:
     def get_input(string):
         user_input = input('Please enter {}: '.format(string))
         while user_input == '':
-            Assessment.get_inputs(string)
+            user_input = Cypher.get_input(string)
         return user_input
 
 
-Assessment().run()
+Cypher().run()
