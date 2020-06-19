@@ -52,11 +52,11 @@ class Ui_Form(object):
         self.pushButton.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 479, 360, 62, 14))
         self.pushButton.setObjectName("pushButton")
         self.retranslate_ui(form)
-        #self.pushButton.clicked.connect(self.alter())
+        self.comboBox.activated[str].connect(self.cypherText)
         QtCore.QMetaObject.connectSlotsByName(form)
 
     def alter(self):
-        self.plainTextEdit.setPlainText(QtCore.QCoreApplication.translate("Form", "I waws clisasoidfj;asdf"))
+        self.comboBox.currentIndex()
 
     def retranslate_ui(self, form):
         _translate = QtCore.QCoreApplication.translate
