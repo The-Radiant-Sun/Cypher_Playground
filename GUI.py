@@ -55,7 +55,7 @@ class Ui_Form(object):
         self.comboBox.activated[str].connect(self.cypherText)
         QtCore.QMetaObject.connectSlotsByName(form)
 
-    def alter(self):
+    def cypherText(self):
         self.comboBox.currentIndex()
 
     def retranslate_ui(self, form):
