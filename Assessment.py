@@ -12,22 +12,14 @@ class Cypher:
         self.key = Cypher.get_input('key')
         # Establishing set of cyphers separated by encrypt / decrypt
         self.cyphers = {
-            'Encrypt': {
-            'CaeserCypher': CaesarCypher(self.message, self.key).encrypt,
-            'KeywordCypher': KeywordCypher(self.message, self.key).encrypt,
-            'VigenereCypher': VigenereCypher(self.message, self.key).encrypt,
-            'XOR': XOR(self.message, self.key).encrypt
-        },
-            'Decrypt': {
-            'CaeserCypher': CaesarCypher(self.message, self.key).decrypt,
-            'KeywordCypher': KeywordCypher(self.message, self.key).decrypt,
-            'VigenereCypher': VigenereCypher(self.message, self.key).decrypt,
-            'XOR': XOR(self.message, self.key).decrypt
-        }}
+            'CaeserCypher': CaesarCypher,
+            'KeywordCypher': KeywordCypher,
+            'VigenereCypher': VigenereCypher,
+            'XOR': XOR
+        }
 
-    def run(self, encrypt_decrypt, method):
-        print(self.cyphers[encrypt_decrypt][method])
-        print(self.cyphers[encrypt_decrypt][method]())
+    def run(self, method, encrypt_decrypt):
+        print(self.cyphers[method](self.message, self.key).encrypt())
 
     @staticmethod
     def get_input(string):
@@ -37,4 +29,4 @@ class Cypher:
         return user_input
 
 
-Cypher().run('Encrypt', 'KeywordCypher')
+Cypher().run('CaeserCypher', 'encrypt')
