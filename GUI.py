@@ -11,6 +11,9 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
+from Assessment import Cypher
+
+
 
 class UiForm(object):
     @staticmethod
@@ -29,9 +32,8 @@ class UiForm(object):
         self.comboBox = QtWidgets.QComboBox(form)
         self.comboBox.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 20, 20, 131, 21))
         self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
+        for i in range(4):
+            self.comboBox.addItem("")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(form)
         self.plainTextEdit.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 180, 20, 361, 151))
         self.plainTextEdit.setObjectName("plainTextEdit")
@@ -56,14 +58,15 @@ class UiForm(object):
         QtCore.QMetaObject.connectSlotsByName(form)
 
     def cypher_text(self):
-        self.comboBox.currentIndex()
+        self.plainTextEdit_2.setPlainText(Cypher().cyphers[self.comboBox.currentText()]().encrypt())
 
     def retranslate_ui(self, form):
         _translate = QtCore.QCoreApplication.translate
         form.setWindowTitle(_translate("Form", "Form"))
         self.comboBox.setItemText(0, _translate("Form", "Caeser Cypher"))
-        self.comboBox.setItemText(1, _translate("Form", "Vigenere Cypher"))
-        self.comboBox.setItemText(2, _translate("Form", "XOR Algorithm"))
+        self.comboBox.setItemText(1, _translate("Form", "Keyword Cypher"))
+        self.comboBox.setItemText(2, _translate("Form", "Vigenere Cypher"))
+        self.comboBox.setItemText(3, _translate("Form", "XOR Algorithm"))
         self.plainTextEdit.setPlainText(_translate("Form", "Input message"))
         self.plainTextEdit_2.setPlainText(_translate("Form", "Input key"))
         self.plainTextEdit_3.setPlainText(_translate("Form", "Resulting text"))

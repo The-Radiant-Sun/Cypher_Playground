@@ -8,14 +8,14 @@ from XOR import XOR
 class Cypher:
     def __init__(self):
         # Establishing the message and key
-        self.message = Cypher.get_input('message')
-        self.key = Cypher.get_input('key')
+        # self.message = Cypher.get_input('message')
+        #self.key = Cypher.get_input('key')
         # Establishing set of cyphers separated by encrypt / decrypt
         self.cyphers = {
-            'CaeserCypher': CaesarCypher,
-            'KeywordCypher': KeywordCypher,
-            'VigenereCypher': VigenereCypher,
-            'XOR': XOR
+            'Caeser Cypher': CaesarCypher,
+            'Keyword Cypher': KeywordCypher,
+            'Vigenere Cypher': VigenereCypher,
+            'XOR Algorithm': XOR
         }
 
     def run(self, method, encrypt_decrypt):
@@ -32,4 +32,4 @@ class Cypher:
         return user_input
 
 
-print(Cypher().run('CaeserCypher', 'encrypt'))
+# print(Cypher().run('CaeserCypher', 'encrypt'))
