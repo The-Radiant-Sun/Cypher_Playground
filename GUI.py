@@ -52,10 +52,10 @@ class Ui_Form(object):
         self.pushButton.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 479, 360, 62, 14))
         self.pushButton.setObjectName("pushButton")
         self.retranslate_ui(form)
-        self.comboBox.activated[str].connect(self.cypherText)
+        self.comboBox.activated[str].connect(self.cypher_text)
         QtCore.QMetaObject.connectSlotsByName(form)
 
-    def cypherText(self):
+    def cypher_text(self):
         self.comboBox.currentIndex()
 
     def retranslate_ui(self, form):

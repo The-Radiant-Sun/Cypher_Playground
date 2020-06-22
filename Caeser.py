@@ -14,7 +14,6 @@ class CaesarCypher:
         # Empty base
         result = ''
         for character in self.message:
-            upper = False
             # Adding the character if it is not a standard alphabet character
             if character == ' ' or not character.isalpha():
                 result += character

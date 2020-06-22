@@ -19,7 +19,10 @@ class Cypher:
         }
 
     def run(self, method, encrypt_decrypt):
-        print(self.cyphers[method](self.message, self.key).encrypt())
+        if encrypt_decrypt == 'encrypt':
+            return self.cyphers[method](self.message, self.key).encrypt()
+        else:
+            return self.cyphers[method](self.message, self.key).decrypt()
 
     @staticmethod
     def get_input(string):
@@ -29,4 +32,4 @@ class Cypher:
         return user_input
 
 
-Cypher().run('CaeserCypher', 'encrypt')
+print(Cypher().run('CaeserCypher', 'encrypt'))
