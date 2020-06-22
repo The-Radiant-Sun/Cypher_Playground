@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
 
-class Ui_Form(object):
+class UiForm(object):
     @staticmethod
     def ratio_alter(ratio_width, ratio_height, x, y, width, height):
         alter_x = ratio_width * x
@@ -74,8 +74,8 @@ class Ui_Form(object):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setup_ui(Form)
-    Form.show()
+    form = QtWidgets.QWidget()
+    ui = UiForm()
+    ui.setup_ui(form)
+    form.show()
     sys.exit(app.exec_())

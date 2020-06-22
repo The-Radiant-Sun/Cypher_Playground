@@ -5,8 +5,10 @@ class XOR:
         self.key = key
 
     def encrypt(self):
+        # Empty base
         result = ''
         for i in range(len(self.message)):
+            # Enacting the encryption
             result += chr(ord(self.message[i]) ^ ord(self.key[i % len(self.key)]))
         return result
 
