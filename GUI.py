@@ -56,7 +56,7 @@ class UiForm(object):
         setup_widget(self.radioButton_2, self.ratio_alter(90, 60, 62, 14), 'radioButton_2')
         setup_widget(self.pushButton, self.ratio_alter(479, 360, 62, 14), 'pushButton')
         # Adding spaces for the comboBox
-        for i in range(len(Cypher().cyphers)):
+        for i in range(len(Cypher().cypher_set)):
             self.comboBox.addItem("")
         # Setting options for widgets
         self.plainTextEdit_3.setReadOnly(True)
@@ -82,7 +82,7 @@ class UiForm(object):
         # Updating all text
         _translate = QtCore.QCoreApplication.translate
         form.setWindowTitle(_translate("Form", "Cypher Playground"))
-        for i, cypher in enumerate(Cypher().cyphers):
+        for i, cypher in enumerate(Cypher().cypher_set):
             self.comboBox.setItemText(i, _translate("Form", cypher))
         self.plainTextEdit.setPlainText(_translate("Form", "Input message"))
         self.plainTextEdit_2.setPlainText(_translate("Form", "Input key"))
