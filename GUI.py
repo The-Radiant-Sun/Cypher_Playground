@@ -59,11 +59,12 @@ class UiForm(object):
         QtCore.QMetaObject.connectSlotsByName(form)
 
     def cypher_text(self):
-        self.plainTextEdit_3.setPlainText(Cypher().cyphers[self.comboBox.currentText()](self.plainTextEdit.toPlainText(), self.plainTextEdit_2.toPlainText()).encrypt())
+        inputs = [self.plainTextEdit.toPlainText(), self.plainTextEdit_2.toPlainText()]
+        self.plainTextEdit_3.setPlainText(Cypher().cyphers[self.comboBox.currentText()](inputs[0], inputs[1]).encrypt())
 
     def retranslate_ui(self, form):
         _translate = QtCore.QCoreApplication.translate
-        form.setWindowTitle(_translate("Form", "Form"))
+        form.setWindowTitle(_translate("Form", "Cypher Playground"))
         for i, cypher in enumerate(Cypher().cyphers):
             self.comboBox.setItemText(i, _translate("Form", cypher))
         self.plainTextEdit.setPlainText(_translate("Form", "Input message"))

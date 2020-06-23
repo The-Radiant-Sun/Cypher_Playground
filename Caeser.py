@@ -5,12 +5,16 @@ class CaesarCypher:
         self.char_set = [chr(i) for i in range(ord('a'), ord('z')+1)]
         self.message = message
         self.key = self.check_error(key)
+
+    def encrypt(self):
+        if self.key == 'error':
+            return 'Please enter a numerically correct key'
+
         # Restricting the key to reasonable ranges
         while self.key > 25 or self.key < 0:
             self.key -= 26 if self.key > 25 else 0
             self.key += 26 if self.key < 0 else 0
 
-    def encrypt(self):
         # Empty base
         result = ''
         for character in self.message:
@@ -32,10 +36,11 @@ class CaesarCypher:
         # The decryption of Caeser Cypher is the same with the reversed key
         return CaesarCypher(self.message, -self.key).encrypt()
 
-    def check_error(self, potential):
+    @staticmethod
+    def check_error(key):
         # Checking if the key is actually an integer
         try:
-            potential = int(potential)
+            key = int(key)
         except ValueError:
-            potential = self.check_error(input('Please enter a numerically correct key: '))
-        return potential
+            key = 'error'
+        return key
