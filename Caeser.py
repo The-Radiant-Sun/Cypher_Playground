@@ -6,9 +6,9 @@ class CaesarCypher:
         self.message = message
         self.key = self.check_error(key)
 
-    def encrypt(self):
+    def cypher(self, encrypt_decrypt):
         if self.key == 'error':
-            return 'Please enter a numerically correct key'
+            return 'Please enter a numerically correct key.'
 
         # Restricting the key to reasonable ranges
         while self.key > 25 or self.key < 0:
@@ -26,15 +26,20 @@ class CaesarCypher:
             upper = False if character.islower() else True
             character = character.lower()
             # Committing the alteration
-            alter = self.char_set[self.char_set.index(character) + self.key]
+            if encrypt_decrypt == 'encrypt':
+                alter = self.char_set[self.char_set.index(character) + self.key]
+            else:
+                alter = self.char_set[self.char_set.index(character) - self.key]
             # Updating the alteration if character was uppercase
             alter = alter.upper() if upper else alter
             result += alter
         return result
 
+    def encrypt(self):
+        return self.cypher('encrypt')
+
     def decrypt(self):
-        # The decryption of Caeser Cypher is the same with the reversed key
-        return CaesarCypher(self.message, -self.key).encrypt()
+        return self.cypher('decrypt')
 
     @staticmethod
     def check_error(key):
