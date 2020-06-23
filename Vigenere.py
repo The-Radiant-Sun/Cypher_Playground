@@ -15,9 +15,9 @@ class VigenereCypher:
             else:
                 # Enacting the different encryption and decryption
                 if encrypt_decrypt == 'encrypt':
-                    result += self.char_set[self.char_set.index(char) + self.char_set.index(self.key[i % len(self.key)]) % len(self.char_set)]
+                    result += self.char_set[(self.char_set.index(char) + self.char_set.index(self.key[i % len(self.key)]) % len(self.char_set)) % len(self.char_set)]
                 else:
-                    result += self.char_set[self.char_set.index(char) - self.char_set.index(self.key[i % len(self.key)]) % len(self.char_set)]
+                    result += self.char_set[(self.char_set.index(char) - self.char_set.index(self.key[i % len(self.key)]) % len(self.char_set)) % len(self.char_set)]
         return result
 
     def encrypt(self):
