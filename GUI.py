@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
-from Assessment import Cypher
+from Cyphers import Cypher
 
 
 class UiForm(object):
@@ -71,7 +71,7 @@ class UiForm(object):
     def cypher_text(self):
         # Establishing variables to save space
         inputs = [self.plainTextEdit.toPlainText(), self.plainTextEdit_2.toPlainText()]
-        encryption = Cypher().cyphers[self.comboBox.currentText()](inputs[0], inputs[1])
+        encryption = Cypher().cypher_set[self.comboBox.currentText()](inputs[0], inputs[1])
         # Encrypts or decrypts depending on selected radioButton
         if self.radioButton.isChecked():
             self.plainTextEdit_3.setPlainText(encryption.encrypt())
