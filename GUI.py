@@ -14,8 +14,16 @@ import sys
 from Assessment import Cypher
 
 
-
 class UiForm(object):
+    def __init__(self, form):
+        self.comboBox = QtWidgets.QComboBox(form)
+        self.plainTextEdit = QtWidgets.QPlainTextEdit(form)
+        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(form)
+        self.plainTextEdit_3 = QtWidgets.QPlainTextEdit(form)
+        self.radioButton = QtWidgets.QRadioButton(form)
+        self.radioButton_2 = QtWidgets.QRadioButton(form)
+        self.pushButton = QtWidgets.QPushButton(form)
+
     @staticmethod
     def ratio_alter(ratio_width, ratio_height, x, y, width, height):
         alter_x = ratio_width * x
@@ -25,35 +33,25 @@ class UiForm(object):
         return QtCore.QRect(alter_x, alter_y, alter_width, alter_height)
 
     def setup_ui(self, form):
+        def setup_widget(self_name, geometry, name):
+            self_name.setGeometry(geometry)
+            self_name.setObjectName(name)
+
         form.setObjectName("Form")
         form.resize(1000, 750)
         form_width_ratio = form.width()/565
         form_height_ratio = form.height()/399
-        self.comboBox = QtWidgets.QComboBox(form)
-        self.comboBox.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 20, 20, 131, 21))
-        self.comboBox.setObjectName("comboBox")
+        setup_widget(self.comboBox, self.ratio_alter(form_width_ratio, form_height_ratio, 20, 20, 131, 21), 'comboBox')
         for i in range(len(Cypher().cyphers)):
             self.comboBox.addItem("")
-        self.plainTextEdit = QtWidgets.QPlainTextEdit(form)
-        self.plainTextEdit.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 180, 20, 361, 151))
-        self.plainTextEdit.setObjectName("plainTextEdit")
-        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(form)
-        self.plainTextEdit_2.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 20, 90, 131, 281))
-        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
-        self.plainTextEdit_3 = QtWidgets.QPlainTextEdit(form)
-        self.plainTextEdit_3.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 180, 190, 361, 151))
-        self.plainTextEdit_3.setObjectName("plainTextEdit_3")
+        setup_widget(self.plainTextEdit, self.ratio_alter(form_width_ratio, form_height_ratio, 180, 20, 361, 151), 'plainTextEdit')
+        setup_widget(self.plainTextEdit_2, self.ratio_alter(form_width_ratio, form_height_ratio, 20, 90, 131, 281), 'plainTextEdit_2')
+        setup_widget(self.plainTextEdit_3, self.ratio_alter(form_width_ratio, form_height_ratio, 180, 190, 361, 151), 'plainTextEdit_3')
         self.plainTextEdit_3.setReadOnly(True)
-        self.radioButton = QtWidgets.QRadioButton(form)
-        self.radioButton.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio,20, 60, 62, 14))
+        setup_widget(self.radioButton, self.ratio_alter(form_width_ratio, form_height_ratio, 20, 60, 62, 14), 'radioButton')
         self.radioButton.setChecked(True)
-        self.radioButton.setObjectName("radioButton")
-        self.radioButton_2 = QtWidgets.QRadioButton(form)
-        self.radioButton_2.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 90, 60, 62, 14))
-        self.radioButton_2.setObjectName("radioButton_2")
-        self.pushButton = QtWidgets.QPushButton(form)
-        self.pushButton.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 479, 360, 62, 14))
-        self.pushButton.setObjectName("pushButton")
+        setup_widget(self.radioButton_2, self.ratio_alter(form_width_ratio, form_height_ratio, 90, 60, 62, 14), 'radioButton_2')
+        setup_widget(self.pushButton, self.ratio_alter(form_width_ratio, form_height_ratio, 479, 360, 62, 14), 'pushButton')
         self.pushButton.clicked.connect(self.cypher_text)
         self.retranslate_ui(form)
         QtCore.QMetaObject.connectSlotsByName(form)
@@ -78,7 +76,7 @@ class UiForm(object):
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     form = QtWidgets.QWidget()
-    ui = UiForm()
+    ui = UiForm(form)
     ui.setup_ui(form)
     form.show()
     sys.exit(app.exec_())
