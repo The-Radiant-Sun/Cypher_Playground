@@ -27,5 +27,4 @@ class RunApplication:
         sys.exit(app.exec_())
 
 
-
 RunApplication()
