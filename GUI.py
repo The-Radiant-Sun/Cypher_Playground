@@ -32,7 +32,7 @@ class UiForm(object):
         self.comboBox = QtWidgets.QComboBox(form)
         self.comboBox.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 20, 20, 131, 21))
         self.comboBox.setObjectName("comboBox")
-        for i in range(4):
+        for i in range(len(Cypher().cyphers)):
             self.comboBox.addItem("")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(form)
         self.plainTextEdit.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 180, 20, 361, 151))
@@ -43,6 +43,7 @@ class UiForm(object):
         self.plainTextEdit_3 = QtWidgets.QPlainTextEdit(form)
         self.plainTextEdit_3.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 180, 190, 361, 151))
         self.plainTextEdit_3.setObjectName("plainTextEdit_3")
+        self.plainTextEdit_3.setReadOnly(True)
         self.radioButton = QtWidgets.QRadioButton(form)
         self.radioButton.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio,20, 60, 62, 14))
         self.radioButton.setChecked(True)
@@ -53,8 +54,8 @@ class UiForm(object):
         self.pushButton = QtWidgets.QPushButton(form)
         self.pushButton.setGeometry(self.ratio_alter(form_width_ratio, form_height_ratio, 479, 360, 62, 14))
         self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(self.cypher_text)
         self.retranslate_ui(form)
-        self.comboBox.activated[str].connect(self.cypher_text)
         QtCore.QMetaObject.connectSlotsByName(form)
 
     def cypher_text(self):
@@ -63,10 +64,8 @@ class UiForm(object):
     def retranslate_ui(self, form):
         _translate = QtCore.QCoreApplication.translate
         form.setWindowTitle(_translate("Form", "Form"))
-        self.comboBox.setItemText(0, _translate("Form", "Caeser Cypher"))
-        self.comboBox.setItemText(1, _translate("Form", "Keyword Cypher"))
-        self.comboBox.setItemText(2, _translate("Form", "Vigenere Cypher"))
-        self.comboBox.setItemText(3, _translate("Form", "XOR Algorithm"))
+        for i, cypher in enumerate(Cypher().cyphers):
+            self.comboBox.setItemText(i, _translate("Form", cypher))
         self.plainTextEdit.setPlainText(_translate("Form", "Input message"))
         self.plainTextEdit_2.setPlainText(_translate("Form", "Input key"))
         self.plainTextEdit_3.setPlainText(_translate("Form", "Resulting text"))
