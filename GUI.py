@@ -49,18 +49,19 @@ class UiForm(object):
         self.height_ratio = form.height()/399
         # Creating the widgets
         setup_widget(self.comboBox, self.ratio_alter(20, 20, 131, 21), 'comboBox')
-        setup_widget(self.plainTextEdit, self.ratio_alter(180, 20, 361, 151), 'plainTextEdit')
-        setup_widget(self.plainTextEdit_2, self.ratio_alter(20, 90, 131, 151), 'plainTextEdit_2')
-        setup_widget(self.plainTextEdit_3, self.ratio_alter(180, 190, 361, 151), 'plainTextEdit_3')
-        setup_widget(self.plainTextEdit_4, self.ratio_alter(20, 260, 131, 122), 'plainTextEdit_4')
-        setup_widget(self.radioButton, self.ratio_alter(20, 60, 62, 14), 'radioButton')
-        setup_widget(self.radioButton_2, self.ratio_alter(90, 60, 62, 14), 'radioButton_2')
+        setup_widget(self.radioButton, self.ratio_alter(20, 59, 62, 14), 'radioButton')
+        setup_widget(self.radioButton_2, self.ratio_alter(90, 59, 62, 14), 'radioButton_2')
+        setup_widget(self.plainTextEdit, self.ratio_alter(169, 20, 372, 152), 'plainTextEdit')
+        setup_widget(self.plainTextEdit_2, self.ratio_alter(20, 90, 131, 82), 'plainTextEdit_2')
+        setup_widget(self.plainTextEdit_3, self.ratio_alter(169, 190, 372, 151), 'plainTextEdit_3')
+        setup_widget(self.plainTextEdit_4, self.ratio_alter(20, 190, 131, 151), 'plainTextEdit_4')
         setup_widget(self.pushButton, self.ratio_alter(479, 360, 62, 14), 'pushButton')
         # Adding spaces for the comboBox
         for i in range(len(Cypher().cypher_set)):
             self.comboBox.addItem("")
         # Setting options for widgets
         self.plainTextEdit_3.setReadOnly(True)
+        self.plainTextEdit_4.setReadOnly(True)
         self.radioButton.setChecked(True)
         # Binding the run button to the cypher_text function
         self.pushButton.clicked.connect(self.cypher_text)
@@ -79,14 +80,16 @@ class UiForm(object):
         self.plainTextEdit_4.setPlainText(Cypher().history_set[self.comboBox.currentText()]())
 
     def cypher_text(self):
-        # Establishing variables to save space
-        inputs = [self.plainTextEdit.toPlainText(), self.plainTextEdit_2.toPlainText()]
-        encryption = Cypher().cypher_set[self.comboBox.currentText()](inputs[0], inputs[1])
-        # Encrypts or decrypts depending on selected radioButton
-        if self.radioButton.isChecked():
-            self.plainTextEdit_3.setPlainText(encryption.encrypt())
-        else:
-            self.plainTextEdit_3.setPlainText(encryption.decrypt())
+        # Establishing break condition for Select Cypher option
+        if self.comboBox.currentIndex() != 0:
+            # Establishing variables to save space
+            inputs = [self.plainTextEdit.toPlainText(), self.plainTextEdit_2.toPlainText()]
+            encryption = Cypher().cypher_set[self.comboBox.currentText()](inputs[0], inputs[1])
+            # Encrypts or decrypts depending on selected radioButton
+            if self.radioButton.isChecked():
+                self.plainTextEdit_3.setPlainText(encryption.encrypt())
+            else:
+                self.plainTextEdit_3.setPlainText(encryption.decrypt())
 
     def retranslate_ui(self, form):
         # Updating all text
