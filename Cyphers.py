@@ -1,4 +1,5 @@
 # Interactive cryptography playground
+from Atbash import AtbashCypher
 from Caeser import CaesarCypher
 from Keyword import KeywordCypher
 from Vigenere import VigenereCypher
@@ -10,6 +11,7 @@ class Cypher:
         # Establishing set of cypher classes to be called upon
         self.cypher_set = {
             'Select Cypher': Cypher,
+            # 'Atbash Cypher': AtbashCypher,
             'Caeser Cypher': CaesarCypher,
             'Keyword Cypher': KeywordCypher,
             'Vigenere Cypher': VigenereCypher,
@@ -18,6 +20,7 @@ class Cypher:
 
         self.history_set = {
             'Select Cypher': Cypher.history,
+            # 'Atbash Cypher': AtbashCypher.history,
             'Caeser Cypher': CaesarCypher.history,
             'Keyword Cypher': KeywordCypher.history,
             'Vigenere Cypher': VigenereCypher.history,
