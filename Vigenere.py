@@ -36,4 +36,4 @@ class VigenereCypher:
         for char in key:
             checked += char if char in self.char_set else ''
             print()
-        return checked.strip()
+        return checked
