@@ -14,3 +14,10 @@ class Cypher:
             'Vigenere Cypher': VigenereCypher,
             'XOR Algorithm': XOR
         }
+
+        self.history_set = {
+            'Caeser Cypher': CaesarCypher.history,
+            'Keyword Cypher': KeywordCypher.history,
+            'Vigenere Cypher': VigenereCypher.history,
+            'XOR Algorithm': XOR.history
+        }

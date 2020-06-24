@@ -4,6 +4,11 @@ class XOR:
         self.message = message
         self.key = key
 
+    @staticmethod
+    def history():
+        history = 'XOR filler'
+        return history
+
     def encrypt(self):
         # Empty base
         result = ''

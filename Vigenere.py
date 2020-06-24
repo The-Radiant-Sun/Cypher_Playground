@@ -3,7 +3,12 @@ class VigenereCypher:
     def __init__(self, message, key):
         self.char_set = [char for char in (chr(i) for i in range(32, 127))]
         self.message = message
-        self.key = key
+        self.key = self.check_error(key)
+
+    @staticmethod
+    def history():
+        history = 'Vigenere filler'
+        return history
 
     def cypher(self, encrypt_decrypt):
         # Empty base
@@ -25,3 +30,10 @@ class VigenereCypher:
 
     def decrypt(self):
         return self.cypher('decrypt')
+
+    def check_error(self, key):
+        checked = ''
+        for char in key:
+            checked += char if char in self.char_set else ''
+            print()
+        return checked.strip()

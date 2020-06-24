@@ -62,10 +62,14 @@ class UiForm(object):
         self.radioButton.setChecked(True)
         # Binding the run button to the cypher_text function
         self.pushButton.clicked.connect(self.cypher_text)
+        self.comboBox.activated[str].connect(self.update_history)
         # Updating the widget text
         self.retranslate_ui(form)
         # Connecting slots to the form
         QtCore.QMetaObject.connectSlotsByName(form)
+
+    def update_history(self):
+        self.plainTextEdit_3.setPlainText(Cypher().history_set[self.comboBox.currentText()]())
 
     def cypher_text(self):
         # Establishing variables to save space

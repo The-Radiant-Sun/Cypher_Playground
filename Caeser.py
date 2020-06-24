@@ -6,6 +6,11 @@ class CaesarCypher:
         self.message = message
         self.key = self.check_error(key)
 
+    @staticmethod
+    def history():
+        history = 'Caeser filler'
+        return history
+
     def cypher(self, encrypt_decrypt):
         if self.key == 'error':
             return 'Please enter a numerically correct key.'

@@ -5,6 +5,11 @@ class KeywordCypher:
         self.message = message
         self.key = [ord(char) for char in key]
 
+    @staticmethod
+    def history():
+        history = 'Keyword filler'
+        return history
+
     def cypher(self, encrypt_decrypt):
         # Empty base
         result = ''
