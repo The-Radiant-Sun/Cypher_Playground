@@ -23,6 +23,7 @@ class UiForm(object):
         self.plainTextEdit = QtWidgets.QPlainTextEdit(form)
         self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(form)
         self.plainTextEdit_3 = QtWidgets.QPlainTextEdit(form)
+        self.plainTextEdit_4 = QtWidgets.QPlainTextEdit(form)
         self.radioButton = QtWidgets.QRadioButton(form)
         self.radioButton_2 = QtWidgets.QRadioButton(form)
         self.pushButton = QtWidgets.QPushButton(form)
@@ -49,8 +50,9 @@ class UiForm(object):
         # Creating the widgets
         setup_widget(self.comboBox, self.ratio_alter(20, 20, 131, 21), 'comboBox')
         setup_widget(self.plainTextEdit, self.ratio_alter(180, 20, 361, 151), 'plainTextEdit')
-        setup_widget(self.plainTextEdit_2, self.ratio_alter(20, 90, 131, 281), 'plainTextEdit_2')
+        setup_widget(self.plainTextEdit_2, self.ratio_alter(20, 90, 131, 151), 'plainTextEdit_2')
         setup_widget(self.plainTextEdit_3, self.ratio_alter(180, 190, 361, 151), 'plainTextEdit_3')
+        setup_widget(self.plainTextEdit_4, self.ratio_alter(20, 260, 131, 122), 'plainTextEdit_4')
         setup_widget(self.radioButton, self.ratio_alter(20, 60, 62, 14), 'radioButton')
         setup_widget(self.radioButton_2, self.ratio_alter(90, 60, 62, 14), 'radioButton_2')
         setup_widget(self.pushButton, self.ratio_alter(479, 360, 62, 14), 'pushButton')
@@ -62,14 +64,19 @@ class UiForm(object):
         self.radioButton.setChecked(True)
         # Binding the run button to the cypher_text function
         self.pushButton.clicked.connect(self.cypher_text)
-        self.comboBox.activated[str].connect(self.update_history)
+        # Binding the comboBox to update_fields function
+        self.comboBox.activated[str].connect(self.update_fields)
         # Updating the widget text
         self.retranslate_ui(form)
         # Connecting slots to the form
         QtCore.QMetaObject.connectSlotsByName(form)
 
-    def update_history(self):
-        self.plainTextEdit_3.setPlainText(Cypher().history_set[self.comboBox.currentText()]())
+    def update_fields(self):
+        # Clearing the text fields, while updating the history field
+        self.plainTextEdit.setPlainText("Input message")
+        self.plainTextEdit_2.setPlainText("Input key")
+        self.plainTextEdit_3.setPlainText("Resulting text")
+        self.plainTextEdit_4.setPlainText(Cypher().history_set[self.comboBox.currentText()]())
 
     def cypher_text(self):
         # Establishing variables to save space
@@ -90,6 +97,7 @@ class UiForm(object):
         self.plainTextEdit.setPlainText(_translate("Form", "Input message"))
         self.plainTextEdit_2.setPlainText(_translate("Form", "Input key"))
         self.plainTextEdit_3.setPlainText(_translate("Form", "Resulting text"))
+        self.plainTextEdit_4.setPlainText(_translate("Form", Cypher().history_set[self.comboBox.currentText()]()))
         self.radioButton.setText(_translate("Form", "Encrypt"))
         self.radioButton_2.setText(_translate("Form", "Decrypt"))
         self.pushButton.setText(_translate("Form", "Run"))
