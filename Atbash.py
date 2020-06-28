@@ -1,7 +1,20 @@
 # Atbash cypher
 class AtbashCypher:
     def __init__(self, message, key):
-        self.char_set = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+        self.char_set_lower = {
+            'a': 'z', 'b': 'y', 'c': 'x', 'd': 'w', 'e': 'v',
+            'f': 'u', 'g': 't', 'h': 's', 'i': 'r', 'j': 'q',
+            'k': 'p', 'l': 'o', 'm': 'n', 'n': 'm', 'o': 'l',
+            'p': 'k', 'q': 'j', 'r': 'i', 's': 'h', 't': 'g',
+            'u': 'f', 'v': 'e', 'w': 'd', 'x': 'c', 'y': 'b',
+            'z': 'a'}
+        self.char_set_upper = {
+            'A': 'Z', 'B': 'Y', 'C': 'X', 'D': 'W', 'E': 'V',
+            'F': 'U', 'G': 'T', 'H': 'S', 'I': 'R', 'J': 'Q',
+            'K': 'P', 'L': 'O', 'M': 'N', 'N': 'M', 'O': 'L',
+            'P': 'K', 'Q': 'J', 'R': 'I', 'S': 'H', 'T': 'G',
+            'U': 'F', 'V': 'E', 'W': 'D', 'X': 'C', 'Y': 'B',
+            'Z': 'A'}
         self.message = message
         self.key = key
 
@@ -16,10 +29,7 @@ class AtbashCypher:
             if not char.isalpha():
                 result += char
             else:
-                upper = False if char.islower() else True
-                char = char.lower()
-                alter = self.char_set[-self.char_set.index(char)]
-                result += alter.upper() if upper else alter
+                result += self.char_set_lower[char] if char in self.char_set_lower else self.char_set_upper[char]
         return result
 
     def encrypt(self):
