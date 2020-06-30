@@ -1,4 +1,4 @@
-# Caeser cypher
+# Caesar cypher
 class CaesarCypher:
     def __init__(self, message, key):
         # Saving char_set, message and key
@@ -8,7 +8,7 @@ class CaesarCypher:
 
     @staticmethod
     def history():
-        history = 'Caeser filler'
+        history = 'Caesar filler'
         return history
 
     def cypher(self, encrypt_decrypt):
@@ -24,7 +24,7 @@ class CaesarCypher:
         result = ''
         for character in self.message:
             # Adding the character if it is not a standard alphabet character
-            if character == ' ' or not character.isalpha():
+            if not character.isalpha():
                 result += character
                 continue
             # Recording if character is uppercase or not

@@ -82,14 +82,15 @@ class UiForm(object):
     def cypher_text(self):
         # Establishing break condition for Select Cypher option
         if self.comboBox.currentIndex() != 0:
-            # Establishing variables to save space
-            inputs = [self.plainTextEdit.toPlainText(), self.plainTextEdit_2.toPlainText()]
-            encryption = Cypher().cypher_set[self.comboBox.currentText()](inputs[0], inputs[1])
-            # Encrypts or decrypts depending on selected radioButton
-            if self.radioButton.isChecked():
-                self.plainTextEdit_3.setPlainText(encryption.encrypt())
-            else:
-                self.plainTextEdit_3.setPlainText(encryption.decrypt())
+            if self.plainTextEdit.toPlainText() != '' or self.plainTextEdit_2.toPlainText() != '':
+                # Establishing variables to save space
+                inputs = [self.plainTextEdit.toPlainText(), self.plainTextEdit_2.toPlainText()]
+                encryption = Cypher().cypher_set[self.comboBox.currentText()](inputs[0], inputs[1])
+                # Encrypts or decrypts depending on selected radioButton
+                if self.radioButton.isChecked():
+                    self.plainTextEdit_3.setPlainText(encryption.encrypt())
+                else:
+                    self.plainTextEdit_3.setPlainText(encryption.decrypt())
 
     def retranslate_ui(self, form):
         # Updating all text

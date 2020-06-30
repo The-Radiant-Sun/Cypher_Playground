@@ -1,6 +1,6 @@
 # Interactive cryptography playground
 from Atbash import AtbashCypher
-from Caeser import CaesarCypher
+from Caesar import CaesarCypher
 from Keyword import KeywordCypher
 from Vigenere import VigenereCypher
 from XOR import XOR
@@ -12,7 +12,7 @@ class Cypher:
         self.cypher_set = {
             'Select Cypher': Cypher,
             'Atbash Cypher': AtbashCypher,
-            'Caeser Cypher': CaesarCypher,
+            'Caesar Cypher': CaesarCypher,
             'Keyword Cypher': KeywordCypher,
             'Vigenere Cypher': VigenereCypher,
             'XOR Algorithm': XOR
@@ -21,7 +21,7 @@ class Cypher:
         self.history_set = {
             'Select Cypher': Cypher.history,
             'Atbash Cypher': AtbashCypher.history,
-            'Caeser Cypher': CaesarCypher.history,
+            'Caeser Cyphar': CaesarCypher.history,
             'Keyword Cypher': KeywordCypher.history,
             'Vigenere Cypher': VigenereCypher.history,
             'XOR Algorithm': XOR.history
