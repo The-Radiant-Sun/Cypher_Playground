@@ -1,16 +1,19 @@
 # Vigenere cypher
 class VigenereCypher:
     def __init__(self, message, key):
+        """Save char_set, message and key as self variables"""
         self.char_set = [char for char in (chr(i) for i in range(32, 127))]
         self.message = message
         self.key = self.check_error(key)
 
     @staticmethod
     def history():
+        """Return history for Keyword"""
         history = 'Vigenere filler'
         return history
 
     def cypher(self, encrypt_decrypt):
+        """Return altered text based on encrypt_decrypt input"""
         # Empty base
         result = ''
         for i, char in enumerate(self.message):
@@ -27,9 +30,11 @@ class VigenereCypher:
         return result
 
     def encrypt(self):
+        """Return result from cypher function with encrypt input"""
         return self.cypher('encrypt')
 
     def decrypt(self):
+        """Return result from cypher function with decrypt input"""
         return self.cypher('decrypt')
 
     def check_error(self, key):

@@ -15,6 +15,7 @@ from Cyphers import Cypher
 
 class UiForm(object):
     def __init__(self, form):
+        """Establish self variables and ratios"""
         # Forming initial ratios
         self.width_ratio = 1
         self.height_ratio = 1
@@ -29,7 +30,7 @@ class UiForm(object):
         self.pushButton = QtWidgets.QPushButton(form)
 
     def ratio_alter(self, x, y, width, height):
-        # Returns coordinates and dimensions altered by the form size
+        """Return coordinates and dimensions altered by the form size"""
         alter_x = self.width_ratio * x
         alter_y = self.height_ratio * y
         alter_width = self.width_ratio * width
@@ -37,8 +38,9 @@ class UiForm(object):
         return QtCore.QRect(alter_x, alter_y, alter_width, alter_height)
 
     def setup_ui(self, form):
+        """Establish GUI components, specialities and connections"""
         def setup_widget(self_name, geometry, name):
-            # Quick setup widget to save space and time
+            """Call functions based on self_name, geometry and name"""
             self_name.setGeometry(geometry)
             self_name.setObjectName(name)
         # Creating the form
@@ -73,13 +75,15 @@ class UiForm(object):
         QtCore.QMetaObject.connectSlotsByName(form)
 
     def update_fields(self):
-        # Clearing the text fields, while updating the history field
+        """Clear  text fields
+        Update history field"""
         self.plainTextEdit.setPlainText("Input message")
         self.plainTextEdit_2.setPlainText("Input key")
         self.plainTextEdit_3.setPlainText("Resulting text")
         self.plainTextEdit_4.setPlainText(Cypher().history_set[self.comboBox.currentText()]())
 
     def cypher_text(self):
+        """Run encryption / decryption with restrictions"""
         # Establishing break condition for Select Cypher option
         if self.comboBox.currentIndex() != 0:
             if self.plainTextEdit.toPlainText() != '' or self.plainTextEdit_2.toPlainText() != '':
@@ -93,7 +97,7 @@ class UiForm(object):
                     self.plainTextEdit_3.setPlainText(encryption.decrypt())
 
     def retranslate_ui(self, form):
-        # Updating all text
+        """Update all text"""
         _translate = QtCore.QCoreApplication.translate
         form.setWindowTitle(_translate("Form", "Cypher Playground"))
         for i, cypher in enumerate(Cypher().cypher_set):

@@ -1,25 +1,26 @@
 # Caesar cypher
 class CaesarCypher:
     def __init__(self, message, key):
-        # Saving char_set, message and key
+        """Save char_set, message and key as self variables"""
         self.char_set = [chr(i) for i in range(ord('a'), ord('z')+1)]
         self.message = message
         self.key = self.check_error(key)
 
     @staticmethod
     def history():
-        history = 'Caesar filler'
+        """Return history and instructions for Caesar"""
+        history = 'Use a numeric key, it is recommended to be within range ONE - TWENTY-SIX, but if numbers outside this range is inputted, then the program will lag.\nCaesar filler'
         return history
 
     def cypher(self, encrypt_decrypt):
+        """Return altered text if no error
+        Vary altered text if encrypt input"""
         if self.key == 'error':
             return 'Please enter a numerically correct key.'
-
         # Restricting the key to reasonable ranges
         while self.key > 25 or self.key < 0:
             self.key -= 26 if self.key > 25 else 0
             self.key += 26 if self.key < 0 else 0
-
         # Empty base
         result = ''
         for character in self.message:
@@ -36,19 +37,21 @@ class CaesarCypher:
             else:
                 alter = self.char_set[self.char_set.index(character) - self.key]
             # Updating the alteration if character was uppercase
-            alter = alter.upper() if upper else alter
-            result += alter
+            result += alter.upper() if upper else alter
         return result
 
     def encrypt(self):
+        """Return result from cypher function with encrypt input"""
         return self.cypher('encrypt')
 
     def decrypt(self):
+        """Return result from cypher function with decrypt input"""
         return self.cypher('decrypt')
 
     @staticmethod
     def check_error(key):
-        # Checking if the key is actually an integer
+        """Check if the key is actually an integer
+        Return error if not"""
         try:
             key = int(key)
         except ValueError:

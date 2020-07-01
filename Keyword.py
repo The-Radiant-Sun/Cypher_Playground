@@ -1,16 +1,18 @@
 # Keyword cypher
 class KeywordCypher:
     def __init__(self, message, key):
-        # Saving the message and each value of the key
+        """Save the message and ord of each character in the key as self variables"""
         self.message = message
         self.key = [ord(char) for char in key]
 
     @staticmethod
     def history():
+        """Return history for Keyword"""
         history = 'Keyword filler'
         return history
 
     def cypher(self, encrypt_decrypt):
+        """Return altered text based on encrypt_decrypt input"""
         # Empty base
         result = ''
         for i, character in enumerate(self.message):
@@ -39,9 +41,11 @@ class KeywordCypher:
         return result
 
     def encrypt(self):
+        """Return result from cypher function with encrypt input"""
         return self.cypher('encrypt')
 
     def decrypt(self):
+        """Return result from cypher function with decrypt input"""
         return self.cypher('decrypt')
 
 

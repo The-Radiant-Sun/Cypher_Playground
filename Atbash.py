@@ -1,6 +1,7 @@
 # Atbash cypher
 class AtbashCypher:
     def __init__(self, message, key):
+        """Establish self dictionaries and variables for later calling"""
         # Establishing dictionaries for translation
         self.char_set_lower = {
             'a': 'z', 'b': 'y', 'c': 'x', 'd': 'w', 'e': 'v',
@@ -21,10 +22,12 @@ class AtbashCypher:
 
     @staticmethod
     def history():
+        """Return basic history and instructions for Atbash"""
         history = 'There is a preset key alphabet, so no inputted key will affect the resulting message. Atbash filler'
         return history
 
     def cypher(self):
+        """Return altered text"""
         # Empty base
         result = ''
         for char in self.message:
@@ -37,7 +40,9 @@ class AtbashCypher:
         return result
 
     def encrypt(self):
+        """Return result from cypher function"""
         return self.cypher()
 
     def decrypt(self):
+        """Return result from cypher function"""
         return self.cypher()

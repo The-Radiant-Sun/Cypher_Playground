@@ -6,7 +6,7 @@ import sys
 
 class RunApplication:
     def __init__(self):
-        # Running the UI
+        """Run UI"""
         app = QtWidgets.QApplication(sys.argv)
         form = QtWidgets.QWidget()
         ui = UiForm(form)
