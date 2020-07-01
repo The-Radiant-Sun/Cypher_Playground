@@ -2,6 +2,7 @@
 from Atbash import AtbashCypher
 from Caesar import CaesarCypher
 from Keyword import KeywordCypher
+from Autokey import AutokeyCypher
 from Vigenere import VigenereCypher
 from XOR import XOR
 
@@ -14,15 +15,17 @@ class Cypher:
             'Atbash Cypher': AtbashCypher,
             'Caesar Cypher': CaesarCypher,
             'Keyword Cypher': KeywordCypher,
+            'Autokey Cypher': AutokeyCypher,
             'Vigenere Cypher': VigenereCypher,
             'XOR Algorithm': XOR
         }
-
+        # Establishing cypher histories
         self.history_set = {
             'Select Cypher': Cypher.history,
             'Atbash Cypher': AtbashCypher.history,
             'Caeser Cyphar': CaesarCypher.history,
             'Keyword Cypher': KeywordCypher.history,
+            'Autokey Cypher': AutokeyCypher.history,
             'Vigenere Cypher': VigenereCypher.history,
             'XOR Algorithm': XOR.history
         }

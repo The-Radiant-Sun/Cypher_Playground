@@ -22,7 +22,7 @@ class KeywordCypher:
             # Recording if character is uppercase or not
             upper = False if character.islower() else True
             character = character.lower()
-            # Commiting the alteration, + if encrypt, - if decrypt
+            # Committing the alteration, + if encrypt, - if decrypt
             if encrypt_decrypt == 'encrypt':
                 alter = ord(character) + self.key[i % len(self.key)]
             else:

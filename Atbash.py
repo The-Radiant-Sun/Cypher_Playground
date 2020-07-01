@@ -1,6 +1,7 @@
 # Atbash cypher
 class AtbashCypher:
     def __init__(self, message, key):
+        # Establishing dictionaries for translation
         self.char_set_lower = {
             'a': 'z', 'b': 'y', 'c': 'x', 'd': 'w', 'e': 'v',
             'f': 'u', 'g': 't', 'h': 's', 'i': 'r', 'j': 'q',
@@ -24,11 +25,14 @@ class AtbashCypher:
         return history
 
     def cypher(self):
+        # Empty base
         result = ''
         for char in self.message:
+            # Passing char if it is not an alphabetic letter
             if not char.isalpha():
                 result += char
             else:
+                # Adding the translated lowercase or uppercase text to the result
                 result += self.char_set_lower[char] if char in self.char_set_lower else self.char_set_upper[char]
         return result
 
