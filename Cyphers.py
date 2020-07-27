@@ -20,16 +20,8 @@ class Cypher:
             'Vigenere Cypher': VigenereCypher,
             'XOR Algorithm': XOR
         }
-        # Establishing cypher histories
-        self.history_set = {
-            'Select Cypher': Cypher.history,
-            'Atbash Cypher': AtbashCypher.history,
-            'Caeser Cyphar': CaesarCypher.history,
-            'Keyword Cypher': KeywordCypher.history,
-            'Autokey Cypher': AutokeyCypher.history,
-            'Vigenere Cypher': VigenereCypher.history,
-            'XOR Algorithm': XOR.history
-        }
+
+        self.history_set = {cypher_text: self.cypher_set[cypher_text].history for n, cypher_text in enumerate(self.cypher_set)}
 
     @staticmethod
     def history():
