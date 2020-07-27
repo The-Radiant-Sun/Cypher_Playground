@@ -8,7 +8,7 @@ class XOR:
     @staticmethod
     def history():
         """Return XOR history"""
-        history = 'XOR filler'
+        history = 'The XOR Cypher is a simple additive cypher.'
         return history
 
     def cypher(self):

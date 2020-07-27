@@ -16,8 +16,8 @@ class Cypher:
             'Atbash Cypher': AtbashCypher,
             'Caesar Cypher': CaesarCypher,
             'Keyword Cypher': KeywordCypher,
-            'Autokey Cypher': AutokeyCypher,
             'Vigenere Cypher': VigenereCypher,
+            'Autokey Cypher': AutokeyCypher,
             'XOR Algorithm': XOR
         }
 

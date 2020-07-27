@@ -23,7 +23,7 @@ class AtbashCypher:
     @staticmethod
     def history():
         """Return basic history and instructions for Atbash"""
-        history = 'There is a preset key alphabet, so no inputted key will affect the resulting message. Atbash filler'
+        history = 'There is a preset key alphabet, so no inputted key will affect the resulting message.\nThe Atbash Cipher is a substitution cipher with a specific key where the letters of the alphabet are reversed. I.e. all "A"s are replaced with "Z"s, all "B"s are replaced with "Y"s, and so on. It was originally used for the Hebrew alphabet, but can be used for any alphabet.\n\nThe Atbash Cipher offers almost no security, and can be broken very easily.'
         return history
 
     def cypher(self):
