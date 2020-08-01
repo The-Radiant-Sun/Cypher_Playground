@@ -1,10 +1,10 @@
 # Interactive cryptography playground
-from Atbash import AtbashCypher
-from Caesar import CaesarCypher
-from Keyword import KeywordCypher
-from Autokey import AutokeyCypher
-from Vigenere import VigenereCypher
-from XOR import XOR
+from Codes.Atbash import AtbashCypher
+from Codes.Caesar import CaesarCypher
+from Codes.Keyword import KeywordCypher
+from Codes.Autokey import AutokeyCypher
+from Codes.Vigenere import VigenereCypher
+from Codes.XOR import XOR
 
 
 class Cypher:
@@ -21,7 +21,7 @@ class Cypher:
             'XOR Algorithm': XOR
         }
 
-        self.history_set = {cypher_text: self.cypher_set[cypher_text].history for n, cypher_text in enumerate(self.cypher_set)}
+        self.history_set = {cypher_text: self.cypher_set[cypher_text].history for cypher_text in self.cypher_set}
 
     @staticmethod
     def history():
