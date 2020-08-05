@@ -9,7 +9,13 @@ class CaesarCypher:
     @staticmethod
     def history():
         """Return history and instructions for Caesar"""
-        history = 'Use a numeric key, it is recommended to be within range ONE - TWENTY-SIX, but if numbers outside this range is inputted, then the program will lag.\n\nThe Caesar Cipher is one of the earliest known and simplest ciphers. It is a type of substitution cipher in which each letter in the plaintext is "shifted" a certain number of places down the alphabet. For example, with a shift of 1, A would be replaced by B, B would become C, and so on. The method is named after Julius Caesar, who apparently used it to communicate with his generals.\n\nThe Caesar cipher offers essentially no communication security, and it will be shown that it can be easily broken even by hand.'
+        history = '''Use a numeric key, it is recommended to be within range ONE - TWENTY-SIX, but if numbers outside 
+        this range is inputted, then the program will lag. The Caesar Cipher is one of the earliest known and 
+        simplest ciphers. It is a type of substitution cipher in which each letter in the plaintext is "shifted" a 
+        certain number of places down the alphabet. For example, with a shift of 1, A would be replaced by B, 
+        B would become C, and so on. The method is named after Julius Caesar, who apparently used it to communicate 
+        with his generals. The Caesar cipher offers essentially no communication security, and it will be shown that 
+        it can be easily broken even by hand. '''
         return history
 
     def cypher(self, encrypt_decrypt):

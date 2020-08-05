@@ -26,6 +26,9 @@ class Cypher:
     @staticmethod
     def history():
         """Return basic description and instructions as history"""
-        history = '--DESCRIPTION--\nThis application is a cryptography playground, where users can\nLearn about various cyphers\nUnderstand their uses\nInteract with different modes of encryption.\n\n'
-        history += '--INSTRUCTIONS--\nTo use this application:\nSelect the cypher from the drop-down menu in the top left of the GUI.\nEnter the message and key into the respective text fields.\nSelect whether to encrypt or decrypt the message.\nClick run, and the resulting text should appear in the lower right text field.'
+        history = '''--DESCRIPTION--\nThis application is a cryptography playground, where users can learn about 
+        various cyphers, understand their uses and interact with different modes of encryption.\n--INSTRUCTIONS--\nTo 
+        use this application, select the cypher from the drop-down menu in the top left of the GUI. Enter the message 
+        and key into the respective text fields. Select whether to encrypt or decrypt the message. Click run, 
+        and the resulting text should appear in the lower right text field. '''
         return history

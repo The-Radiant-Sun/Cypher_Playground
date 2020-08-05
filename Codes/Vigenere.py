@@ -9,7 +9,10 @@ class VigenereCypher:
     @staticmethod
     def history():
         """Return history for Keyword"""
-        history = 'The Vigenère Cipher is a polyalphabetic substitution cipher. The method was originally described by Giovan Battista Bellaso in his 1553 book La cifra del. Sig. Giovan Battista Bellaso; however, the scheme was later misattributed to Blaise de Vigenère in the 19th century, and is now widely known as the Vigenère Cipher.'
+        history = '''The Vigenère Cipher is a polyalphabetic substitution cipher. The method was originally described 
+        by Giovan Battista Bellaso in his 1553 book La cifra del. Sig. Giovan Battista Bellaso; However, the scheme 
+        was later misattributed to Blaise de Vigenère in the 19th century, and is now widely known as the Vigenère 
+        Cipher. '''
         return history
 
     def cypher(self, encrypt_decrypt):

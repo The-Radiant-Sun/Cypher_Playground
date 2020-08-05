@@ -8,7 +8,7 @@ class KeywordCypher:
     @staticmethod
     def history():
         """Return history for Keyword"""
-        history = 'The Keyword Cypher is identical to the Ceaser Cypher, exept that a word can be used as a key.'
+        history = 'The Keyword Cypher is identical to the Ceaser Cypher, except that a word can be used as a key.'
         return history
 
     def cypher(self, encrypt_decrypt):
