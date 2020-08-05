@@ -9,8 +9,8 @@ class XOR:
     def history():
         """Return XOR history"""
         history = '''The XOR Cypher is a simple additive cypher.
-        It focuses on the use of the additive disjunction operation,
-        otherwise known as the XOR operation, which is how it got its name.'''
+It focuses on the use of the additive disjunction operation,
+otherwise known as the XOR operation, which is how it got its name.'''
         return history
 
     def cypher(self):

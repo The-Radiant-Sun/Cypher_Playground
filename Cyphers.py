@@ -27,12 +27,13 @@ class Cypher:
     def history():
         """Return basic description and instructions as history"""
         history = '''--DESCRIPTION--
-        This application is a cryptography playground,
-        where users can learn about various cyphers,
-        understand their uses and interact with different modes of encryption.
-        --INSTRUCTIONS--
-        To use this application, select the cypher from the drop-down menu in the top left of the GUI.
-        Enter the message and key into the respective text fields.
-        Select whether to encrypt or decrypt the message.
-        Click run, and the resulting text should appear in the lower right text field. '''
+This application is a cryptography playground,
+where users can learn about various cyphers,
+understand their uses and interact with different modes of encryption.
+
+--INSTRUCTIONS--
+To use this application, select the cypher from the drop-down menu in the top left of the GUI.
+Enter the message and key into the respective text fields.
+Select whether to encrypt or decrypt the message.
+Click run, and the resulting text should appear in the lower right text field. '''
         return history

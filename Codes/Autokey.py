@@ -18,8 +18,8 @@ class AutokeyCypher:
         """Return altered text based on encrypt_decrypt input"""
         # Base result
         result = '''The Autokey Cipher is a polyalphabetic substitution cipher.
-        It is closely related to the Vigenere Cipher, but uses a different method of generating the key.
-        It was invented by Blaise de Vigenère in 1586, and is in general more secure than the Vigenere Cipher. '''
+It is closely related to the Vigenere Cipher, but uses a different method of generating the key.
+It was invented by Blaise de Vigenère in 1586and is in general more secure than the Vigenere Cipher. '''
         # Variation for non-alpha characters
         alter = 0
         for i, char in enumerate(self.message):
