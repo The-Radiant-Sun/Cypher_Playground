@@ -39,12 +39,14 @@ It was invented by Blaise de Vigenère in 1586and is in general more secure than
                 char_alter = self.char_set[(self.char_set.index(char) + self.char_set.index(self.key[i + alter])) % len(self.char_set)]
                 # Uppercase if uppercase
                 result += char_alter.upper() if upper else char_alter
+                # Updating key
                 self.key += char
             else:
                 # Altering the char
                 char_alter = self.char_set[(self.char_set.index(char) - self.char_set.index(self.key[i + alter])) % len(self.char_set)]
                 # Uppercase if uppercase
                 result += char_alter.upper() if upper else char_alter
+                # Updating key
                 self.key += char_alter
         return result
 
