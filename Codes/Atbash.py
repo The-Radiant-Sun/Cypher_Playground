@@ -10,13 +10,7 @@ class AtbashCypher:
             'p': 'k', 'q': 'j', 'r': 'i', 's': 'h', 't': 'g',
             'u': 'f', 'v': 'e', 'w': 'd', 'x': 'c', 'y': 'b',
             'z': 'a'}
-        self.char_set_upper = {
-            'A': 'Z', 'B': 'Y', 'C': 'X', 'D': 'W', 'E': 'V',
-            'F': 'U', 'G': 'T', 'H': 'S', 'I': 'R', 'J': 'Q',
-            'K': 'P', 'L': 'O', 'M': 'N', 'N': 'M', 'O': 'L',
-            'P': 'K', 'Q': 'J', 'R': 'I', 'S': 'H', 'T': 'G',
-            'U': 'F', 'V': 'E', 'W': 'D', 'X': 'C', 'Y': 'B',
-            'Z': 'A'}
+        self.char_set_upper = {char_text.upper(): self.char_set_lower[char_text].upper() for char_text in self.char_set_lower}
         self.message = message
         self.key = key
 

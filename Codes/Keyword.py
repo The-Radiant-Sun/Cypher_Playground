@@ -16,7 +16,6 @@ class KeywordCypher:
         # Empty base
         result = ''
         for i, character in enumerate(self.message):
-            upper = False
             # Adding the character if it is not a space
             if character == ' ':
                 result += character
