@@ -3,13 +3,8 @@ class AtbashCypher:
     def __init__(self, message, key):
         """Establish self dictionaries and variables for later calling"""
         # Establishing dictionaries for translation
-        self.char_set_lower = {
-            'a': 'z', 'b': 'y', 'c': 'x', 'd': 'w', 'e': 'v',
-            'f': 'u', 'g': 't', 'h': 's', 'i': 'r', 'j': 'q',
-            'k': 'p', 'l': 'o', 'm': 'n', 'n': 'm', 'o': 'l',
-            'p': 'k', 'q': 'j', 'r': 'i', 's': 'h', 't': 'g',
-            'u': 'f', 'v': 'e', 'w': 'd', 'x': 'c', 'y': 'b',
-            'z': 'a'}
+        self.char_set_lower = {chr(i): chr(ord('z') - n) for n, i in enumerate(range(ord('a'), ord('z') + 1))}
+        print(self.char_set_lower)
         self.char_set_upper = {char_text.upper(): self.char_set_lower[char_text].upper() for char_text in self.char_set_lower}
         self.message = message
         self.key = key
@@ -45,3 +40,5 @@ The Atbash Cipher offers almost no security, and can be broken very easily. '''
     def decrypt(self):
         """Return result from cypher function"""
         return self.cypher()
+
+AtbashCypher('','')
