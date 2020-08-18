@@ -11,15 +11,17 @@ class AutokeyCypher:
     @staticmethod
     def history():
         """Return history for Keyword"""
-        history = 'Autokey Filler'
+        history = '''The Autokey Cipher is a polyalphabetic substitution cipher.
+It is closely related to the Vigenere Cipher, but uses a different method of generating the key.
+It was invented by Blaise de Vigenère in 1586and is in general more secure than the Vigenere Cipher. '''
         return history
 
     def cypher(self, encrypt_decrypt):
         """Return altered text based on encrypt_decrypt input"""
+        if not self.key.isalpha():
+            return 'Please enter a valid alphabetic key'
         # Base result
-        result = '''The Autokey Cipher is a polyalphabetic substitution cipher.
-It is closely related to the Vigenere Cipher, but uses a different method of generating the key.
-It was invented by Blaise de Vigenère in 1586and is in general more secure than the Vigenere Cipher. '''
+        result = ''
         # Variation for non-alpha characters
         alter = 0
         for i, char in enumerate(self.message):
