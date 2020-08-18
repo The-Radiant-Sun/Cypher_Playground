@@ -19,7 +19,7 @@ It was invented by Blaise de Vigenère in 1586and is in general more secure than
     def cypher(self, encrypt_decrypt):
         """Return altered text based on encrypt_decrypt input"""
         if not self.key.isalpha():
-            return 'Please enter a valid alphabetic key'
+            return 'Please enter a valid alphabetic key, please do not include spaces'
         # Base result
         result = ''
         # Variation for non-alpha characters
