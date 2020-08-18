@@ -40,5 +40,3 @@ The Atbash Cipher offers almost no security, and can be broken very easily. '''
     def decrypt(self):
         """Return result from cypher function"""
         return self.cypher()
-
-AtbashCypher('','')
