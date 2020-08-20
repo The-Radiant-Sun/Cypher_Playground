@@ -5,6 +5,7 @@ class AtbashCypher:
         # Establishing dictionaries for translation
         self.char_set_lower = {chr(i): chr(ord('z') - n) for n, i in enumerate(range(ord('a'), ord('z') + 1))}
         self.char_set_upper = {char_text.upper(): self.char_set_lower[char_text].upper() for char_text in self.char_set_lower}
+        # Passing message and key
         self.message = message
         self.key = key
 
